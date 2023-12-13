@@ -1,0 +1,199 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url(/img/circle-scatter-haikei.svg);
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.box{
+   max-width: 500px;
+   padding: 50px;
+   background:transparent;
+   border: 5px solid rgb(255, 255, 255,.2);
+   backdrop-filter: blur(10px);
+   box-shadow: 0 10px 15px rgb(0, 0,0,.5);
+   border-radius: 20px;
+   position: relative;
+}
+input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgb(255, 255, 255,.2);
+    border-radius: 40px;
+    margin: 30px 0px;
+    padding: 10px;
+}
+input,select,textarea{
+    color: #fff;
+    font-family: 'Anton', sans-serif;
+}
+textarea:focus,input:focus{
+    color: #fff;
+    font-family: 'Anton', sans-serif;
+
+}
+
+h1{
+    color: white;
+    font-family: 'Anton', sans-serif;
+    font-weight: 900;
+    font-size: 48px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+input::placeholder{
+    color: #fff;
+}
+button{
+    background-color: #fff;
+    width: 100%;
+    height: 50px;
+    padding: 0.8em 1.5em;
+    border-radius: 20em;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    font-size: 15px;
+    transition: all 100ms linear;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    position: relative;
+    box-shadow: inset 0 4px 6px -1px rgb(0 0 0/0.1),0 2px 4px -2px rgb(0 0 0/0.1);
+}
+button:active{
+    box-shadow: inset 0 0 0 4px #043b3f6b;
+}
+button::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    position: absolute;
+    border-radius: inherit;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transition: all 500ms ease-in-out;
+    opacity: 0;
+    animation:flash 100ms ease-in-out;
+    transform: scaleX(2)scaleY(2);
+}
+button:hover::before{
+    opacity: 1;
+    transform: scaleX(1)scaleY(1);
+}
+@keyframes flash{
+    0%{
+        opacity: 1;
+        transform: translate(45px);
+    }
+    100%{
+        opacity: 0;
+        transform: translate(0);
+    }
+}
+ul{
+    padding: 0;
+    margin: 30px;
+}
+li{
+    margin-bottom: 5px;
+    color: whitesmoke;
+    font-family: 'Anton', sans-serif;
+    font-weight: 400px;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.remove{
+    color: #fff;
+    cursor: pointer;
+    float: right;
+    transition: 0.3s;
+}
+.remove:hover{
+    color: red;
+}
+.alert{
+    padding: 20px;
+    background:transparent;
+    border: 5px solid rgb(255, 255, 255,.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 15px rgb(0, 0,0,.5);
+    border-radius: 20px;    color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+    z-index: 1000;
+    width: 300px;
+    height: 150px;
+    font-size: 20px;
+    font-family: 'Anton', sans-serif;
+}
+.closebtn{
+    color: white;
+    font-family: 'Anton', sans-serif;
+    font-size: 50px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    float: right;
+}
+.closebtn:hover{
+    color:red;
+}
+
+@keyframes rotatelight{
+    0%{
+        border-color: #ccc;
+    }
+    100%{
+        border-color: #ffcc00;
+    }
+}
+
+#taskinput{
+    border: 2px solid rgb(255, 255, 255,.2);
+    transition: border-color 0.3s;
+}
+#taskinput:focus{
+    animation: rotatelight 1s linear infinite;
+    border-color: #ffcc00;
+    outline: none;
+}
+@keyframes pulseborder{
+    0%{
+        box-shadow: 0 0 5px rgb(255, 0, 0,0.5);
+    }
+    50%{
+        box-shadow: 0 0 15px rgb(255, 0, 0,0.7);
+    }
+    100%{
+        box-shadow: 0 0 5px rgb(255, 0, 0,0.5);
+    }
+}
+.alert{
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-name:  pulseborder;
+}
